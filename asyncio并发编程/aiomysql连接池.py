@@ -4,6 +4,7 @@ import aiomysql
 
 loop = asyncio.get_event_loop()
 
+# 旧式
 # @asyncio.coroutine
 # def example():
 #     # 设置charset="utf8", autocommit=True，避免数据插入不了数据库bug

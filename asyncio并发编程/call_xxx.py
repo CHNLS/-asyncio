@@ -20,6 +20,9 @@ def stop_loop(loop):
 #     loop.call_soon(stop_loop, loop)
 #     loop.run_forever()  # 不可少
 
+
+# loop.call_later(delay, callback, *args, context=None)
+# 延时调用，即在给定的delay时间后调用callback
 # if __name__ == '__main__':
 #     loop = asyncio.get_event_loop()
 #     loop.call_later(2, callback, 2)
@@ -30,6 +33,9 @@ def stop_loop(loop):
 #     # loop.call_soon(stop_loop, loop)
 #     loop.run_forever()
 
+
+# loop.call_at(when, callback, *args, context=None)
+# 行为与 call_later() 相同
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
     now = loop.time()

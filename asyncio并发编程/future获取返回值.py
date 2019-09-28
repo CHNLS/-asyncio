@@ -12,6 +12,17 @@ async def get_html(url):
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
+    # 创建future对象，和asyncio中future对象不一样，此对象不可等待
+    # loop_future = loop.create_future()
+    # loop_data = loop.create_task(get_html("www.baidu.com"))
+    # loop.run_until_complete(loop_data)
+    # print(loop_data.result())
+
+    # Future是一种特殊的低层级可等待对象，表示一个异步操作的最终结果。
+    # 当一个Future对象被等待，这意味着协程将保持等待直到该Future对象在其他地方操作完毕。
+    # 在asyncio中需要Future对象以便允许通过 async / await 使用基于回调的代码。
+    # 通常情况下没有必要在应用层级的代码中创建Future对象。
+    # Future对象有时会由库和某些asyncioAPI暴露给用户，用作可等待对象
     future = asyncio.ensure_future(get_html("www.baidu.com"))
     loop.run_until_complete(future)
     res = future.result()  # 获取返回值
